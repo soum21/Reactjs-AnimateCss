@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap');
+.container{
+background: rgb(221, 226, 225);
+}
+
+.body{
+   margin: 0;
+   padding: 0;
+   min-height: 100vh;
+   font-family: 'PT Sans Narrow', sans-serif; 
+}
+
+.open{
+    position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.open .layer{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    animation: open 1s ease-in-out forwards;
+}
+
+.open .layer:nth-child(1){
+    background: #000;
+    z-index: 2;
+}
+
+.open .layer:nth-child(2){
+    background:white;
+    animation-delay: 0.5s;
+    z-index: 1;
+}
+
+@keyframes open{
+    0%{
+        transform: scaleY(1);
+    }
+    100%{
+        transform: scaleY(0);
+    }
+}
+
+section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: #fff; */
+    display: grid;
+    left: 0;
+    bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+
+}
+
+.bannerText{
+    position: absolute;
+    top:50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 700px;
+    
+}
+
+.bannerText h2
+{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    transform-origin: left;
+    text-transform: uppercase;
+    transform: scaleX(1);
+    /* color: white; */
+}
+ h3{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* display: inline-block; */
+    transform-origin: left;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    /* font-size: 0.5em; */
+    letter-spacing: 0.1em;
+    color: transparent;
+    font-size: 1.5em;
+}   
+.bannerText h4{
+    position: fixed;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    /* color: white; */
+    /* display: inline-block; */
+    /* transform-origin: left; */
+    text-transform: uppercase;
+    transform: scaleX(1);
+    padding: 0 0 0 440px;
+}
+
+.bannerText h2{
+font-size: 4em;
+}
+/* .bannerText h3{
+    font-size: 2em;
+} */
+
+.bannerText h2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(247, 247, 247, 0.938);
+    width: 100%;
+    height: 100%;
+    transform-origin: right;
+    animation: revealName 1s ease-in-out forwards;
+    animation-delay: 1s;
+    /* color: white; */
+}
+
+.bannerText h3::before{
+    content: attr(data-text);
+    position: absolute;
+    margin: 0 0 0 0.15em;
+    padding: 0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    /* color: white; */
+    animation: type 2.2s steps(44) ;
+    animation-delay: 0.5s;
+}
+.bannerText h3::after{
+    content: attr(data-text);
+    position: absolute;
+    margin: 0 0 0 0.15em;
+    padding: 0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid rgb(221, 226, 225);
+    white-space: nowrap;
+    overflow: hidden;
+    /* color: white; */
+    animation: type 2.2s steps(44) ;
+    animation-delay: 0.5s;
+    color: #000;
+}
+
+@keyframes revealName{
+    0%{
+        transform: scaleX(1);
+    }
+    100%{
+        transform: scaleX(0);
+    }
+}
+
+@keyframes type{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+        border-right: 1px solid white;
+    }
+}
+
+.bannerText h1{
+    font-size: 1.2em;
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 0 0.35em 0.15em;
+    padding: 0;
+    /* transform-origin: right; */
+    letter-spacing: 0.1em;
+    transform-origin: left;
+    font-style: oblique;
+    text-transform: uppercase;
+}
+
+.mypic{
+    position: absolute;
+    right: 20%;
+    top: 22%;
+    transform: translateX(10%);
+    /* filter: grayscale(100%); */
+    filter: blur(4px);
+    transition: .5s ease-in-out;
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 20px 15px #9b7468;
+    float: left;
+    border-radius: 50%;
+}
+
+.mypic:hover{
+    filter: blur(0);
+    /* filter: grayscale(0); */
+}
+
+.imageDiv{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 20%;
+    top: 22%;
+    transform: translate(-50%,-50%);
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    transition: 0.5s;
+    /* color: white; */
+    color: #000;
+}
+
